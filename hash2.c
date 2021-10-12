@@ -7,8 +7,10 @@
 
 int *hashTable[TABLE_SIZE];
 
-int hash(int value) {
-    return (value * value * value) % TABLE_SIZE;
+int *hash(int value) {
+    int *hashValue;
+    *hashValue = (value * value * value) % TABLE_SIZE;
+    return hashValue;
 }
 
 void initTable() {
@@ -33,17 +35,17 @@ void printTable() {
     printf("\n<<<<<<<<<<<<< Table End >>>>>>>>>>>>>\n");
 }
 
-bool addToTable(int *value) {
-    int i, hashIndex;
+bool addToTable(int value) {
+    int i, *hashIndex;
 
     if(&value == NULL) {
         return false;
     }
-    hashIndex = hash(*value);
+    hashIndex = hash(value);
 
     for(i = 0; i <  TABLE_SIZE; i++){
-        if(hashTable[hashIndex] == NULL) {
-            hashTable[hashIndex] = value;
+        if(hashTable[*hashIndex] == NULL) {
+            *hashTable[*hashIndex] = value;
             return true;
         }
     }
@@ -68,16 +70,15 @@ int main(int argc, char const *argv[])
     initTable();
     printTable();
 
-    int a = 5;
-    addToTable(a);
-    addToTable(4);
-    addToTable(3);
-    addToTable(2);
-    addToTable(1);
+    addToTable(5);
+    // addToTable(4);
+    // addToTable(3);
+    // addToTable(2);
+    // addToTable(1);
 
-    printTable();
+    // printTable();
 
-    printf("%d", *hashTable[1]);
+    // printf("%d", *hashTable[1]);
 
     printf("\n");
     return 0;
