@@ -312,13 +312,5 @@ int main(int argc, char const *argv[])
 
     print_table();
 
-    // printf("Andersonzito -> %u\n", hash("Andersonzito"));
-    // printf("Susanzita -> %u\n", hash("Susanzita"));
-    // printf("Matcha -> %u\n", hash("Matcha"));
-    // printf("Jon -> %u\n", hash("Jon"));
-    // printf("Sansa -> %u\n", hash("Sansa"));
-    // printf("Tyrion -> %u\n", hash("Tyrion"));
-    // printf("Arya -> %u\n", hash("Arya"));
-
     return 0;
 }
